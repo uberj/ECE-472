@@ -1,3 +1,6 @@
+// Kevin Ngo and Jacques Uber
+// Lab1 testbench
+
 module proj1_testbench;
 
     wire [3:0] sum;

@@ -1,3 +1,6 @@
+// Kevin Ngo and Jacques Uber
+// A multiplexer
+
 module mux(in_a, in_b, sel, out);
     input in_a, in_b;
     input sel;

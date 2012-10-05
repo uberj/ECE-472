@@ -1,3 +1,6 @@
+// Kevin Ngo and Jacques Uber
+// A full adder
+
 module fulladder(a, b, cin, sum, cout);
     input a, b, cin;
     output sum, cout;

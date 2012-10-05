@@ -1,3 +1,6 @@
+// Kevin Ngo and Jacques Uber
+// A ripple carry adder
+
 module ripple_adder(a, b, sum, cout);
     input [3:0] a, b;
     output [3:0] sum;

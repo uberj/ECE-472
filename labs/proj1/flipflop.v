@@ -1,3 +1,6 @@
+// Kevin Ngo and Jacques Uber
+// A flipflop
+
 module flipflop(reset, clk, d_in, d_out);
   input reset, clk;
   input d_in;
