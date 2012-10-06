@@ -2,3 +2,5 @@ work/
 *.bak
 *.wlf
 *.mti
+*.vstf
+.nfs.*
