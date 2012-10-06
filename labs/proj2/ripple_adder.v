@@ -1,5 +1,5 @@
 // Kevin Ngo and Jacques Uber
-// A ripple carry adder
+// A ripple carry adder with and without Lookahead
 
 module ripple_adder(a, b, sum, cout);
 
@@ -25,21 +25,4 @@ module ripple_adder(a, b, sum, cout);
     fulladder f13(a[13], b[13], c[13], sum[13], c[14]);
     fulladder f14(a[14], b[14], c[14], sum[14], c[15]);
     fulladder f15(a[15], b[15], c[15], sum[15], cout);
-    /*
-    input [15:0] a, b;
-    output [15:0] sum;
-    output cout;
-
-    wire [3:0] c;
-    assign c[0]=0;
-    wire [3:0] la_p_out;
-    wire [3:0] la_g_out;
-    fulladder_LA f0(a[0], b[0], c[0], sum[0], la_p_out[0], la_g_out[0]);
-    fulladder_LA f1(a[1], b[1], c[1], sum[1], la_p_out[1], la_g_out[1]);
-    fulladder_LA f2(a[2], b[2], c[2], sum[2], la_p_out[2], la_g_out[2]);
-    fulladder_LA f3(a[3], b[3], c[3], sum[3], la_p_out[3], la_g_out[3]);
-
-    lookahead la(la_p_out, la_g_out, c);
-    */
 endmodule
-

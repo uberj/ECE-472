@@ -1,4 +1,4 @@
-V_FILES=ripple_adder.v fulladder.v proj2_testbench.v lookahead.v fulladder_LA.v
+V_FILES=ripple_adder.v fulladder.v proj2_testbench.v lookahead.v fulladder_LA.v add16_LA.v cla_4bit.v
 CC=vlog
 all:
 	$(CC) $(V_FILES)

@@ -1,5 +1,9 @@
 // Kevin Ngo and Jacques Uber
-// Lookahead module
+// 4-bit carry-look-ahead module
+/*
+* Input 4 pg (8 wires)
+* Output 4 c (4 wires)
+*/
 
 module lookahead(p, g, c);
     input [3:0] p, g;
