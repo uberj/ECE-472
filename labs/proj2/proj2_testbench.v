@@ -9,39 +9,37 @@
 module proj2_testbench;
 
     reg clk; // Both LA and non-LA use the same clock
-    wire cin;
 
     wire [15:0] sum;
     wire cout;
     reg [15:0] A, B;
 
-    assign cin = 0; // They both get 0 for cin
 
     // DUT = Device under test
     ripple_adder DUT(A, B, sum, cout);
 
-    wire [15:0] sum_LA; // LA get's its own sub
+    wire [15:0] sum_LA; // LA get's its own sum
     wire cout_LA; // LA get's it's own cout
     reg [15:0] A_la, B_la; // LA get's it's own inputs
 
-    //cla_4bit lA(A_la, B_la, sum_LA, cin, cout_LA);
-    add16_LA lA(A_la, B_la, sum_LA, cin, cout_LA);
+    add16_LA lA(A_la, B_la, sum_LA, cout_LA);
 
     always
         #5 clk=~clk;
 
     initial begin
         clk = 1'b0;
-        A = 8'h00;
-        B = 8'h00;
-        A_la = 8'h0;
-        B_la = 8'h0;
+        A = 16'b1000000000000000;
+        B = 16'b0111111111111000;
+        A_la = 16'b1000000000000000;
+        B_la = 16'b0111111111111000;
     end
 
     always @(posedge clk)
     begin
         A = A + 1;
         A_la = A_la + 1;
-        B_la = B_la + 1;
+        //A = A + 16'b0111111111111111;
+        //A_la = A_la + 16'b0100000000000001;
     end
 endmodule

@@ -20,5 +20,5 @@ module cla_4bit(a, b, sum, cin, cout);
     fulladder_LA f1(a[1], b[1], c[0], sum[1], la_p_out[1], la_g_out[1]);
     fulladder_LA f2(a[2], b[2], c[1], sum[2], la_p_out[2], la_g_out[2]);
     fulladder_LA f3(a[3], b[3], c[2], sum[3], la_p_out[3], la_g_out[3]);
-    lookahead la0(la_p_out, la_g_out, c[3:0]);
+    lookahead la0(la_p_out, la_g_out, c[3:0], cin);
 endmodule

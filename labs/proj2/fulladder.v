@@ -6,8 +6,6 @@ module fulladder(a, b, cin, sum, cout);
     output sum, cout;
 
     // Problem 13 adds delay
-    //assign sum = a ^ b ^ cin;
-    assign sum = a ^ b ^ cin;
-    // assign cout = a & b | a & cin | b & cin;
-    assign cout = a & b | a & cin | b & cin;
+    assign #2 sum = a ^ b ^ cin; // Worst case delay is 2
+    assign #2 cout = a & b | a & cin | b & cin; // Worst case delay is 3
 endmodule
