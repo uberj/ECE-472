@@ -29,17 +29,17 @@ module proj2_testbench;
 
     initial begin
         clk = 1'b0;
-        A = 16'b1000000000000000;
+        A = 16'b0000000000000001;
         B = 16'b0111111111111000;
-        A_la = 16'b1000000000000000;
+        A_la = 16'b0000000000000001;
         B_la = 16'b0111111111111000;
     end
 
     always @(posedge clk)
     begin
         A = A + 1;
+        //B = B + 0;
         A_la = A_la + 1;
-        //A = A + 16'b0111111111111111;
-        //A_la = A_la + 16'b0100000000000001;
+        //B_la = B_la + 0;
     end
 endmodule
