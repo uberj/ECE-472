@@ -11,9 +11,14 @@ simulate: kill build
 kill:
 	-pkill vsim
 
-TEXFILE="lab2"
+TEXFILE="CS472_LAB2_kngo_juber"
 report:
 	pdflatex $(TEXFILE).tex
 	rm $(TEXFILE).log
 	rm $(TEXFILE).aux
 	evince $(TEXFILE).pdf
+
+clean:
+	-rm -f $(TEXFILE).log
+	-rm -f $(TEXFILE).aux
+	-rm -f $(TEXFILE).pdf
