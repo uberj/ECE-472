@@ -1,6 +1,6 @@
-// Kevin Ngo and Jacques Uber
-// carry-look-ahead module
 /*
+* Kevin Ngo and Jacques Uber
+* carry-look-ahead module
 * Input 4 pg (8 wires)
 * Output 4 c (4 wires)
 */

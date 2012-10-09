@@ -1,5 +1,7 @@
-// Kevin Ngo and Jacques Uber
-// A full adder with lookahead
+/*
+* Kevin Ngo and Jacques Uber
+* A full adder with lookahead
+*/
 
 module fulladder_LA(a, b, cin, sum, p, g);
     input a, b, cin;

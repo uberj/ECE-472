@@ -1,5 +1,8 @@
-// Kevin Ngo and Jacques Uber
-// 16 bit adder using 4 r-bit Carry-lookahead-adders
+/*
+* Kevin Ngo and Jacques Uber
+* 16 bit adder using 4 r-bit Carry-lookahead-adders
+*/
+
 module add16_LA(a, b, sum, cout);
     input [15:0] a, b;
 

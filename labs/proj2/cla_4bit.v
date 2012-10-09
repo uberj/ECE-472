@@ -1,5 +1,5 @@
-// Kevin Ngo and Jacques Uber
 /*
+* Kevin Ngo and Jacques Uber
 * A simple 4 bit adder
 * Part 11 of the lab
 */

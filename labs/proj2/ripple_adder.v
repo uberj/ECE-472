@@ -1,5 +1,7 @@
-// Kevin Ngo and Jacques Uber
-// A ripple carry adder with and without Lookahead
+/*
+* Kevin Ngo and Jacques Uber
+* A ripple carry adder with and without Lookahead
+*/
 
 module ripple_adder(a, b, sum, cout);
 

@@ -1,6 +1,6 @@
-// Kevin Ngo and Jacques Uber
-// Lab1 testbench
 /*
+* Kevin Ngo and Jacques Uber
+* Lab1 testbench
 * We want to simulate both the ripple adder and the carry look ahead adder at the same time. This
 * will allow us to see the wave forms in the same window and allow for easier analysis.
 * Any thing that has 'LA' or 'la' is assumed to be part of the 'Look Ahead' adder.
