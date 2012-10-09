@@ -30,9 +30,9 @@ module proj2_testbench;
     initial begin
         clk = 1'b0;
         A = 16'b0000000000000001;
-        B = 16'b0111111111111000;
+        B = 16'b1111111111111000;
         A_la = 16'b0000000000000001;
-        B_la = 16'b0111111111111000;
+        B_la = 16'b1111111111111000;
     end
 
     always @(posedge clk)
