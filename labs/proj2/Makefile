@@ -21,4 +21,3 @@ report:
 clean:
 	-rm -f $(TEXFILE).log
 	-rm -f $(TEXFILE).aux
-	-rm -f $(TEXFILE).pdf
