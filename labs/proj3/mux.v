@@ -15,7 +15,8 @@ module mux(in, sel, out);
             0: out = in[0];
             1: out = in[1];
             2: out = in[2];
-            3: out = in[3];
+            6: out = in[3];
+            7: out = 0;
         endcase
     end
 endmodule

@@ -2,7 +2,7 @@
 * Kevin Ngo and Jacques Uber
 * 16 bit ALU
 */
-module ALU16(A_i, B_i, Operation_Code_i, zero_o,S_o, overflow_o, carry_o);
+module ALU16(A_i, B_i, Operation_Code_i, zero_o, S_o, overflow_o, carry_o);
     
     input [15:0] A_i;
     input [15:0] B_i;
@@ -42,6 +42,6 @@ module ALU16(A_i, B_i, Operation_Code_i, zero_o,S_o, overflow_o, carry_o);
     alu_slice_1bit alu1b12(A_i[12], B_i[12], S_o[12], c[12], c[13], zero, binvt, Operation_Code_i);
     alu_slice_1bit alu1b13(A_i[13], B_i[13], S_o[13], c[13], c[14], zero, binvt, Operation_Code_i);
     alu_slice_1bit alu1b14(A_i[14], B_i[14], S_o[14], c[14], c[15], zero, binvt, Operation_Code_i);
-    alu_slice_msb alu1b15(A_i[15], B_i[15], S_o[15], c[15], overflow_o, zero, set, binvt, Operation_Code_i);
+    alu_slice_msb alu1b15(A_i[15], B_i[15], S_o[15], c[15], overflow_o, set, binvt, Operation_Code_i);
 
 endmodule
