@@ -3,7 +3,6 @@
 * 16 bit ALU
 */
 module ALU16(A_i, B_i, Operation_Code_i, zero_o, S_o, overflow_o, carry_o);
-    
     input [15:0] A_i;
     input [15:0] B_i;
     input [15:0] S_o; // Sum out
@@ -22,7 +21,6 @@ module ALU16(A_i, B_i, Operation_Code_i, zero_o, S_o, overflow_o, carry_o);
     assign zero = 0;
     wire less;
     wire set;
-    
     // Overflow is: Operation Addition
     // if msb(a) == msb(b) and msb(sum) != msb(a)
 
