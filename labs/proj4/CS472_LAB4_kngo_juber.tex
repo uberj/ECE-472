@@ -1,0 +1,268 @@
+% template created by: Russell Haering. arr. Joseph Crop
+\documentclass[12pt]{article}
+\usepackage[hmargin=1in, vmargin=1in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[hang,small]{caption}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\DeclareGraphicsExtensions{.jpg}
+\usepackage{url}
+
+\def\author{Jacques Uber and Kevin Ngo}
+\def\title{ECE472 Lab3 Report}
+\def\date{\today}
+
+\fancyhf{} % clear all header and footer fields
+\fancyhead[LO]{\author}
+\fancyhead[RO]{\date}
+% The weird spacing here is to get the spacing of \thepage to be right.
+\fancyfoot[C]{\thepage\
+                    / 7}
+
+                    \setcounter{secnumdepth}{0}
+                    \setlength{\parindent}{0pt}
+                    \setlength{\parskip}{4mm}
+                    \linespread{1.4}
+
+
+\begin{document}
+\fancyhf{} % clear all header and footer fields
+\fancyhead[LO]{\author}
+\fancyhead[RO]{\date}
+\fancyhead[CO]{\title}
+
+
+
+\section{Lab Report}
+In this lab we implement a 16bit ALU that does 5 operations: AND, OR, ADD, SUB, and SLT.
+
+\begin{enumerate}
+    \item
+    Wave diagrams of the AND and OR operations.
+    
+    \includegraphics[scale=0.55]{img/and_or_wave.png}
+
+    \item
+    Wave diagrams of the OR and ADD operations.
+
+    \includegraphics[scale=0.55]{img/or_add_wave.png}
+
+    \item
+    Wave diagrams of the SUB and SLT operations.
+
+    \includegraphics[scale=0.55]{img/subtract_set_less_than.png}
+
+\end{enumerate}
+
+
+\section{Lab Code}
+    {\tiny
+    \begin{verbatim}
+
+/*
+* Kevin Ngo and Jacques Uber
+* 16 bit ALU
+*/
+module ALU16(A_i, B_i, Operation_Code_i, zero_o, S_o, overflow_o, carry_o);
+
+    input [15:0] A_i;
+    input [15:0] B_i;
+    input [15:0] S_o; // Sum out
+    input [2:0] Operation_Code_i;
+    input zero_o;
+    input overflow_o;
+    input carry_o;
+
+    wire [15:0] c;
+    assign c[0] = Operation_Code_i[2] ? 1 : 0;
+
+    wire binvt;
+    assign binvt = Operation_Code_i[2];
+
+    wire zero;
+    assign zero = 0;
+    wire less;
+    wire set;
+    
+    // Overflow is: Operation Addition
+    // if msb(a) == msb(b) and msb(sum) != msb(a)
+
+
+    alu_slice_1bit alu1b0(A_i[0], B_i[0], S_o[0], c[0], c[1], set, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b1(A_i[1], B_i[1], S_o[1], c[1], c[2], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b2(A_i[2], B_i[2], S_o[2], c[2], c[3], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b3(A_i[3], B_i[3], S_o[3], c[3], c[4], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b4(A_i[4], B_i[4], S_o[4], c[4], c[5], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b5(A_i[5], B_i[5], S_o[5], c[5], c[6], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b6(A_i[6], B_i[6], S_o[6], c[6], c[7], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b7(A_i[7], B_i[7], S_o[7], c[7], c[8], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b8(A_i[8], B_i[8], S_o[8], c[8], c[9], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b9(A_i[9], B_i[9], S_o[9], c[9], c[10], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b10(A_i[10], B_i[10], S_o[10], c[10], c[11], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b11(A_i[11], B_i[11], S_o[11], c[11], c[12], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b12(A_i[12], B_i[12], S_o[12], c[12], c[13], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b13(A_i[13], B_i[13], S_o[13], c[13], c[14], zero, binvt, Operation_Code_i);
+    alu_slice_1bit alu1b14(A_i[14], B_i[14], S_o[14], c[14], c[15], zero, binvt, Operation_Code_i);
+    alu_slice_msb msb(A_i[15], B_i[15], S_o[15], c[15], carry_o, overflow_o, set, binvt, Operation_Code_i);
+
+    assign zero_o = (S_o == 0) ? 1 : 0;
+
+endmodule
+/*
+* Kevin Ngo and Jacques Uber
+* (1 bit) ALU slice
+*/
+module alu_slice_1bit(a, b, alu_out, cin, cout, less, binvt, operation);
+    input a, b, cin, less, binvt, operation;
+    input [2:0] operation;
+    output cout;
+    output alu_out;
+    wire [3:0] mux_in;
+    wire fa_a;
+    wire fa_b;
+
+
+    // (input 0 of mux)
+    assign mux_in[0] = a & b;
+
+    // (input 1 of mux)
+    assign mux_in[1] = a | b;
+
+    // Configure Full adder (input 2 of mux)
+    assign fa_b = b ^ binvt;
+    fulladder f0(a, fa_b, cin, mux_in[2], cout);
+
+    // (input 3 of mux)
+    assign mux_in[3] = less;
+
+    // Configure mux (alu_out is output of mux)
+    mux mux4(mux_in, operation, alu_out);
+endmodule
+/*
+* Kevin Ngo and Jacques Uber
+* (1 bit) ALU slice MSB
+*/
+module alu_slice_msb(a, b, alu_out, cin, cout, oflo, set, binvt, operation);
+    input a, b, cin,  binvt, operation;
+    input [2:0] operation;
+    output alu_out;
+    output set;
+    output cout;
+    output oflo; // Over flow
+    wire cout; // Used to calculate oflo
+    wire mx_out;
+    wire zero;
+    wire msb_sum;
+    wire tmp1, tmp2;
+    assign zero = 0;
+    alu_slice_1bit inner_alu(a, b, alu_out, cin, cout, zero, binvt, operation);
+
+    assign oflo = (cout ^ cin) ? 1: 0;
+
+    // The 'Set' output is dependent upon the opcode
+    // selecting 'set on less than' and the overflow being 1.
+    assign fa_b = b ^ binvt;
+    fulladder f0(a, fa_b, cin, msb_sum, tmp1);
+    assign set = (operation == 3'b111 & msb_sum) ? 1: 0;
+endmodule
+/*
+* Kevin Ngo and Jacques Uber
+* A full adder
+*/
+
+module fulladder(a, b, cin, sum, cout);
+    input a, b, cin;
+    output sum, cout;
+
+    // Problem 13 adds delay
+    assign sum = a ^ b ^ cin; // Worst case delay is 2
+    assign cout = a & b | a & cin | b & cin; // Worst case delay is 3
+endmodule
+/*
+* Kevin Ngo and Jacques Uber
+* (4 bit) mux
+*/
+
+module mux(in, sel, out);
+    input [3:0] in;
+    input [2:0] sel;
+    output out;
+    reg out;
+
+    always @(in or sel)
+    begin
+        case (sel)
+            3'b000: out = in[0];
+            3'b001: out = in[1];
+            3'b010: out = in[2];
+            3'b110: out = in[2];
+            3'b111: out = in[3];
+        endcase
+    end
+endmodule
+module ALU16_tb;
+  
+  reg [15:0]  A_i, B_i;
+  reg [2:0]   Operation_Code_i;
+  reg         clk;
+  
+  wire [15:0] S_o;
+  wire        zero_o, overflow_o, carry_o;
+    
+  
+ALU16 DUT(A_i, B_i, Operation_Code_i, zero_o,S_o, overflow_o, carry_o);
+
+always
+  #5 clk = ~clk;
+
+initial begin
+  
+  A_i               = 16'h0000;
+  B_i               = 16'h0000;
+  
+  Operation_Code_i  = 3'b000;           //AND
+  
+  clk               = 1'b0;
+  
+  #10;
+  @ (posedge clk);
+  
+  A_i = 16'h5555; B_i = 16'hFFFF; #10;
+  A_i = 16'h5555; B_i = 16'hAAAA; #10;
+  A_i = 16'h1234; B_i = 16'h5678; #10;
+  
+  Operation_Code_i    = 3'b001;         //OR
+  A_i = 16'h7555; B_i = 16'h0FFF; #10;
+  A_i = 16'h5555; B_i = 16'h0101; #10;
+  A_i = 16'hABCD; B_i = 16'h0000; #10;
+      
+  Operation_Code_i    = 3'b010;         //ADD
+  A_i = 16'h0001; B_i = 16'h7FFF; #10;
+  A_i = 16'h2222; B_i = 16'h3333; #10;
+  A_i = 16'hABCD; B_i = 16'h1111; #10;
+  A_i = 16'h7FFF; B_i = 16'h7FFF; #10;
+       
+  Operation_Code_i    = 3'b110;         //SUB
+  A_i = 16'h0001; B_i = 16'h7FFF; #10;
+  A_i = 16'h4444; B_i = 16'h3333; #10;
+  A_i = 16'hABCD; B_i = 16'h1111; #10;
+  A_i = 16'h7FFF; B_i = 16'h7FFF; #10;
+  A_i = 16'h1000; B_i = 16'h2245; #10;
+       
+  Operation_Code_i    = 3'b111;         //SLT
+  A_i = 16'h1000; B_i = 16'h1000; #10;
+  A_i = 16'h3332; B_i = 16'h3333; #10;
+  A_i = 16'hFFFF; B_i = 16'hABCD; #10;
+  A_i = 16'h7FFF; B_i = 16'h7FFE; #10;
+  A_i = 16'h0002; B_i = 16'h0003;
+     
+end
+
+endmodule
+    \end{verbatim}
+    }
+
+
+\end{document}
