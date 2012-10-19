@@ -5,14 +5,14 @@
 // File          : control_single.v
 // Author        : John Nestor  <nestorj@lafayette.edu>
 // Organization  : Lafayette College
-// 
+//
 // Created       : October 2002
 // Last modified : 7 January 2005
 //-----------------------------------------------------------------------------
 // Description :
 //   Control unit for the MIPS "Single Cycle" processor implementation described
 //   Section 5.4 of "Computer Organization and Design, 3rd ed."
-//   by David Patterson & John Hennessey, Morgan Kaufmann, 2004 (COD3e).  
+//   by David Patterson & John Hennessey, Morgan Kaufmann, 2004 (COD3e).
 //
 //   It implements the function specified in Figure 5.18 on p. 308 of COD3e.
 //
@@ -30,33 +30,68 @@ module control_single(opcode, RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWr
     parameter SW = 6'd43;
     parameter BEQ = 6'd4;
 
+    parameter JMP = 6'd5;
+    parameter ADDI = 6'd6;
+    parameter BNE = 6'd7;
+
     always @(opcode)
     begin
         case (opcode)
-          R_FORMAT : 
+          R_FORMAT :
           begin
-              RegDst=1'b1; ALUSrc=1'b0; MemtoReg=1'b0; RegWrite=1'b1; MemRead=1'b0; 
+              RegDst=1'b1; ALUSrc=1'b0; MemtoReg=1'b0; RegWrite=1'b1; MemRead=1'b0;
               MemWrite=1'b0; Branch=1'b0; ALUOp = 2'b10;
           end
           LW :
           begin
-              RegDst=1'b0; ALUSrc=1'b1; MemtoReg=1'b1; RegWrite=1'b1; MemRead=1'b1; 
+              RegDst=1'b0; ALUSrc=1'b1; MemtoReg=1'b1; RegWrite=1'b1; MemRead=1'b1;
               MemWrite=1'b0; Branch=1'b0; ALUOp = 2'b00;
           end
           SW :
           begin
-              RegDst=1'bx; ALUSrc=1'b1; MemtoReg=1'bx; RegWrite=1'b0; MemRead=1'b0; 
+              RegDst=1'bx; ALUSrc=1'b1; MemtoReg=1'bx; RegWrite=1'b0; MemRead=1'b0;
               MemWrite=1'b1; Branch=1'b0; ALUOp = 2'b00;
           end
           BEQ :
           begin
-              RegDst=1'bx; ALUSrc=1'b0; MemtoReg=1'bx; RegWrite=1'b0; MemRead=1'b0; 
+              RegDst=1'bx; ALUSrc=1'b0; MemtoReg=1'bx; RegWrite=1'b0; MemRead=1'b0;
               MemWrite=1'b0; Branch=1'b1; ALUOp = 2'b01;
           end
+
+          JMP :
+          begin
+              // RegDst: x, not writing to register
+              // ALUSrc: 1, extend_immed
+              // Memtoreg: x, not reading from memory
+              // RegWrite: 0, not writing to register
+              // MemRead: 0, not reading from memory
+              // Branch: 1, set new PC
+              // ALUOp: 00, add immediate to PC
+              RegDst=1'bx; ALUSrc=1'b1; MemtoReg=1'bx; RegWrite=1'b0; MemRead=1'b0;
+              MemWrite=1'b0; Branch=1'b1; ALUOp = 2'b00;
+          end
+          ADDI :
+          begin
+              // RegDst: 1, write to $t
+              // ALUSrc: 0, read from second register port
+              // Memtoreg: 0, ALU result to register
+              // RegWrite: 1, writing to register
+              // MemRead: 0, not reading from memory
+              // Branch: 0, not branching
+              // ALUOp: 00, add two registers
+              RegDst=1'b1; ALUSrc=1'b0; MemtoReg=1'b0; RegWrite=1'b1; MemRead=1'b0;
+              MemWrite=1'b0; Branch=1'b0; ALUOp = 2'b00;
+          end
+          BNE :
+          begin
+              RegDst=1'bx; ALUSrc=1'bx; MemtoReg=1'bx; RegWrite=1'bx; MemRead=1'bx;
+              MemWrite=1'bx; Branch=1'bx; ALUOp = 2'bxx;
+          end
+
           default
           begin
               $display("control_single unimplemented opcode %d", opcode);
-              RegDst=1'bx; ALUSrc=1'bx; MemtoReg=1'bx; RegWrite=1'bx; MemRead=1'bx; 
+              RegDst=1'bx; ALUSrc=1'bx; MemtoReg=1'bx; RegWrite=1'bx; MemRead=1'bx;
               MemWrite=1'bx; Branch=1'bx; ALUOp = 2'bxx;
           end
 
