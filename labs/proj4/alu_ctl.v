@@ -5,14 +5,14 @@
 // File          : alu_control.v
 // Author        : John Nestor  <nestorj@lafayette.edu>
 // Organization  : Lafayette College
-// 
+//
 // Created       : October 2002
 // Last modified : 7 January 2005
 //-----------------------------------------------------------------------------
 // Description :
 //   ALU Control Unit  used in the implementations of the MIPS
 //   processor subset described in Ch. 5-6 of "Computer Organization and Design, 3rd ed."
-//   by David Patterson & John Hennessey, Morgan Kaufmann, 2004 (COD3e).  
+//   by David Patterson & John Hennessey, Morgan Kaufmann, 2004 (COD3e).
 //
 //   It implements the function specified in Figure 5.13 on p. 302 of COD3e.
 //
@@ -40,10 +40,10 @@ module alu_ctl(ALUOp, Funct, ALUOperation);
 
     always @(ALUOp or Funct)
     begin
-        case (ALUOp) 
+        case (ALUOp)
             2'b00 : ALUOperation = ALU_add;
             2'b01 : ALUOperation = ALU_sub;
-            2'b10 : case (Funct) 
+            2'b10 : case (Funct)
                         F_add : ALUOperation = ALU_add;
                         F_sub : ALUOperation = ALU_sub;
                         F_and : ALUOperation = ALU_and;

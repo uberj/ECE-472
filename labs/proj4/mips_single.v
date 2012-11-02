@@ -5,14 +5,14 @@
 // File          : mips_single.v
 // Author        : John Nestor  <nestorj@lafayette.edu>
 // Organization  : Lafayette College
-// 
+//
 // Created       : October 2002
 // Last modified : 7 January 2005
 //-----------------------------------------------------------------------------
 // Description :
 //   "Single Cycle" implementation of the MIPS processor subset described in
 //   Section 5.4 of "Computer Organization and Design, 3rd ed."
-//   by David Patterson & John Hennessey, Morgan Kaufmann, 2004 (COD3e).  
+//   by David Patterson & John Hennessey, Morgan Kaufmann, 2004 (COD3e).
 //
 //   It implements the equivalent of Figure 5.19 on page 309 of COD3e
 //
@@ -49,17 +49,17 @@ module mips_single(clk, reset);
     // datapath signals
     wire [4:0] rfile_wn;
     wire [31:0] rfile_rd1, rfile_rd2, rfile_wd, alu_b, alu_out, b_tgt, pc_next,
-                pc, pc_incr, br_add_out, dmem_rdata;
+                pc, pc_incr, br_add_out, dmem_rdata, pc_final;
 
     // control signals
 
-    wire RegWrite, Branch, PCSrc, RegDst, MemtoReg, MemRead, MemWrite, ALUSrc, Zero;
+    wire RegWrite, Branch, PCSrc, RegDst, MemtoReg, MemRead, MemWrite, ALUSrc, Zero, Jump;
     wire [1:0] ALUOp;
     wire [2:0] Operation;
 
     // module instantiations
 
-    reg32		PC(clk, reset, pc_next, pc);
+    reg32		PC(clk, reset, pc_final, pc);
 
     add32 		PCADD(pc, 32'd4, pc_incr);
 
@@ -83,9 +83,13 @@ module mips_single(clk, reset);
 
     mux2 #(32)	WRMUX(MemtoReg, alu_out, dmem_rdata, rfile_wd);
 
+    // Extend MIPS datapath to handle jump instruction by adding a mux
+    // to choose between branch target and jump address.
+    mux2 #(32)  JUMPMUX(Jump, pc_next, {pc_incr[31:28], jumpoffset, 2'b00}, pc_final);
+
     control_single CTL(.opcode(opcode), .RegDst(RegDst), .ALUSrc(ALUSrc), .MemtoReg(MemtoReg),
                        .RegWrite(RegWrite), .MemRead(MemRead), .MemWrite(MemWrite), .Branch(Branch),
-                       .ALUOp(ALUOp));
+                       .ALUOp(ALUOp), .Jump(Jump));
 
     alu_ctl 	ALUCTL(ALUOp, funct, Operation);
 endmodule
