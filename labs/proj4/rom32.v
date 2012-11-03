@@ -62,7 +62,7 @@ module rom32(address, data_out);
 
           // BNE
           5'd0 : data_out = { 6'd35, 5'd0, 5'd3, 16'd8};   // lw $3, 8($0)   r3=2
-          5'd1 : data_out = { 6'd35, 5'd0, 5'd4, 16'd20};   // lw $4, 20($0)   r4=5
+          5'd1 : data_out = { 6'd35, 5'd0, 5'd4, 16'd8};   // lw $4, 20($0)   r4=2
           5'd2 : data_out = { 6'd8, 5'd3, 5'd3, 16'd6 };    // addi $3, $3, 6 r3=8
           5'd3 : data_out = { 6'd5,  5'd3, 5'd4, 16'd2};    // bne r3, r4
           5'd4 : data_out = { 6'd35, 5'd0, 5'd3, 16'd8 };   //
