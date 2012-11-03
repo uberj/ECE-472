@@ -5,14 +5,14 @@
 // File          : mux2.v
 // Author        : John Nestor  <nestorj@lafayette.edu>
 // Organization  : Lafayette College
-// 
+//
 // Created       : October 2002
 // Last modified : 7 January 2005
 //-----------------------------------------------------------------------------
 // Description :
 //   Parameterized 2-1 mux  used in the implementations of the MIPS processor
 //   subset described in Ch. 5-6 of "Computer Organization and Design, 3rd ed."
-//   by David Patterson & John Hennessey, Morgan Kaufmann, 2004 (COD3e).  
+//   by David Patterson & John Hennessey, Morgan Kaufmann, 2004 (COD3e).
 //
 //-----------------------------------------------------------------------------
 
