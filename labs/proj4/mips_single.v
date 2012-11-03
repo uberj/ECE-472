@@ -72,7 +72,7 @@ module mips_single(clk, reset);
     rom32 		IMEM(pc, instr);
 
     mem32 		DMEM(clk, MemRead, MemWrite, alu_out, rfile_rd2, dmem_rdata);
-
+                //     output in0     in1
     and  		BR_AND(PCSrc, Branch, sub_zero);
 
     mux2 #(5) 	RFMUX(RegDst, rt, rd, rfile_wn);
@@ -87,7 +87,7 @@ module mips_single(clk, reset);
     // to choose between branch target and jump address.
     mux2 #(32)  JUMPMUX(Jump, pc_next, {pc_incr[31:28], jumpoffset, 2'b00}, pc_final);
 
-    // BEQ 00010(0) Zer0
+    // BEQ 00010(0) Zero
     // BNE 00010(1) NOT Zero
     mux2 #(1)   BRMUX(opcode[0], Zero, ~Zero, sub_zero);
 

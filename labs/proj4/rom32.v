@@ -51,13 +51,23 @@ module rom32(address, data_out);
           5'd1 : data_out = { 6'd8, 5'd3, 5'd3, 16'd6 };    // addi $3, $3, 2
         */
 
-          // BEQ
+        /* // BEQ
           5'd0 : data_out = { 6'd35, 5'd0, 5'd3, 16'd8 };   // lw $3, 8($0)   r3=2
           5'd1 : data_out = { 6'd35, 5'd0, 5'd4, 16'd8 };   // lw $4, 8($0)   r4=2
           5'd2 : data_out = { 6'd4,  5'd3, 5'd4, 16'd2};    // beq r3, r4
           5'd3 : data_out = { 6'd35, 5'd0, 5'd3, 16'd8 };   //
           5'd4 : data_out = { 8'hee, 8'hee, 8'hee, 8'hee }; //
           5'd5 : data_out = { 8'hff, 8'hff, 8'hff, 8'hff }; // Target of beq
+        */
+
+          // BNE
+          5'd0 : data_out = { 6'd35, 5'd0, 5'd3, 16'd8};   // lw $3, 8($0)   r3=2
+          5'd1 : data_out = { 6'd35, 5'd0, 5'd4, 16'd20};   // lw $4, 20($0)   r4=5
+          5'd2 : data_out = { 6'd8, 5'd3, 5'd3, 16'd6 };    // addi $3, $3, 6 r3=8
+          5'd3 : data_out = { 6'd5,  5'd3, 5'd4, 16'd2};    // bne r3, r4
+          5'd4 : data_out = { 6'd35, 5'd0, 5'd3, 16'd8 };   //
+          5'd5 : data_out = { 8'hee, 8'hee, 8'hee, 8'hee }; //
+          5'd6 : data_out = { 8'hff, 8'hff, 8'hff, 8'hff }; // Target of bne
 
           // add more cases here as desired
           default data_out = 32'hxxxx;

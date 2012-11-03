@@ -32,7 +32,7 @@ module control_single(opcode, RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWr
 
     parameter JMP = 6'd2;
     parameter ADDI = 6'd8;
-    parameter BNE = 6'd7;
+    parameter BNE = 6'd5;
 
     always @(opcode)
     begin
@@ -91,19 +91,19 @@ module control_single(opcode, RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWr
               RegDst=1'b0; ALUSrc=1'b1; MemtoReg=1'b0; RegWrite=1'b1; MemRead=1'b0;
               MemWrite=1'b0; Branch=1'b0; ALUOp=2'b00; Jump=0;
           end
-//          BNE :
-//          begin
-//              // RegDst: x, not writing to register
-//              // ALUSrc: 1, extend_immed
-//              // Memtoreg: x, not writing to register
-//              // RegWrite: 0, not writing to register
-//              // MemRead: 0, not reading from memory
-//              // MemWrite: 0, not writing to memory
-//              // Branch: 1,
-//              // ALUOp: 01, subtract to compare
-//              RegDst=1'bx; ALUSrc=1'b1; MemtoReg=1'bx; RegWrite=1'b0; MemRead=1'b0;
-//              MemWrite=1'b0; Branch=1'b1; ALUOp=2'b01; Jump=0;
-//          end
+          BNE :
+          begin
+              // RegDst: x, not writing to register
+              // ALUSrc: 1, extend_immed
+              // Memtoreg: x, not writing to register
+              // RegWrite: 0, not writing to register
+              // MemRead: 0, not reading from memory
+              // MemWrite: 0, not writing to memory
+              // Branch: 1,
+              // ALUOp: 01, subtract to compare
+              RegDst=1'bx; ALUSrc=1'b1; MemtoReg=1'bx; RegWrite=1'b0; MemRead=1'b0;
+              MemWrite=1'b0; Branch=1'b1; ALUOp=2'b01; Jump=0;
+          end
           default
           begin
               $display("control_single unimplemented opcode %d", opcode);
