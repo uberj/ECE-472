@@ -62,7 +62,7 @@ module control_single(opcode, RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWr
               // MemWrite: 0, not writing to memory
               // Branch: 1,
               // ALUOp: 01, subtract to compare
-              RegDst=1'bx; ALUSrc=1'b1; MemtoReg=1'bx; RegWrite=1'b0; MemRead=1'b0;
+              RegDst=1'bx; ALUSrc=1'b0; MemtoReg=1'bx; RegWrite=1'b0; MemRead=1'b0;
               MemWrite=1'b0; Branch=1'b1; ALUOp=2'b01; Jump=0;
           end
           JMP :
@@ -101,7 +101,7 @@ module control_single(opcode, RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWr
               // MemWrite: 0, not writing to memory
               // Branch: 1,
               // ALUOp: 01, subtract to compare
-              RegDst=1'bx; ALUSrc=1'b1; MemtoReg=1'bx; RegWrite=1'b0; MemRead=1'b0;
+              RegDst=1'bx; ALUSrc=1'b0; MemtoReg=1'bx; RegWrite=1'b0; MemRead=1'b0;
               MemWrite=1'b0; Branch=1'b1; ALUOp=2'b01; Jump=0;
           end
           default
