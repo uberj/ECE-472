@@ -76,7 +76,7 @@ module rom32(address, data_out);
 
           // Test Program
           5'd0 : data_out = { 6'd35, 5'd0, 5'd3, 16'd8};    // lw $3, 8($0)  (r3=2)
-          5'd1 : data_out = { 6'd35, 5'd0, 5'd4, 16'd8};    // lw $4, 20($0) (r4=2)
+          5'd1 : data_out = { 6'd35, 5'd0, 5'd4, 16'd8};    // lw $4, 8($0) (r4=2)
 
           5'd2 : data_out = { 6'd8, 5'd4, 5'd4, 16'd4 };    // addi $4, $4, 6 (r4=6)
           5'd3 : data_out = { 6'd4, 5'd3, 5'd4, 16'd2 };    // beq $3, $4, DONE ; LOOP
