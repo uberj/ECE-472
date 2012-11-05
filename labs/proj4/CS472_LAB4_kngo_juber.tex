@@ -39,36 +39,47 @@ signals to handle the JUMP, ADDI, BEQ, and BNE instructions.
 \begin{enumerate}
     \item
     Waveform diagram of the JUMP instruction.
-    \includegraphics[scale=0.55]{img/jump_wave.png}
+
+    \centerline{\includegraphics[scale=0.55]{img/jmp_wave.png}}
 
     \item
     Waveform diagram of the ADDI instruction.
-    \includegraphics[scale=0.55]{img/addi_wave.png}
+
+    \centerline{\includegraphics[scale=0.55]{img/addi_wave.png}}
 
     \item
     Waveform diagram of the BEQ instruction.
-    \includegraphics[scale=0.55]{img/beq_wave.png}
+
+    \centerline{\includegraphics[scale=0.55]{img/beq_wave.png}}
 
     \item
     Waveform diagram of the BNE instruction.
-    \includegraphics[scale=0.55]{img/bne_wave.png}
 
-    \item
-    Waveform diagram of the test assembly program.
-    \includegraphics[scale=0.55]{img/test_program_wave.png}
+    \centerline{\includegraphics[scale=0.55]{img/bne_wave.png}}
+
 \end{enumerate}
 
 \section{Assembly Program}
-LW r3, 8(r0)
-LW r4, 8(r0)
-ADDI r4, r4, 6
-BEQ r3, r4, DONE ; LOOP
-ADDI r3, r3, 1
-JUMP LOOP
-ADDI r3, r3, 1 ; DONE
-BNE r3, r4, FINAL
-JUNK-INSTRUCTION:
-FINAL:
+\begin{verbatim}
+        LW r3, 8(r0)
+        LW r4, 8(r0)
+        ADDI r4, r4, 6
+        BEQ r3, r4, DONE ; LOOP
+        ADDI r3, r3, 1
+        JUMP LOOP
+        ADDI r3, r3, 1 ; DONE
+        BNE r3, r4, FINAL
+        JUNK-INSTRUCTION:
+        FINAL:
+\end{verbatim}
+    Waveform diagram of the test assembly program. The Signals have been truncated because they make the image too big. You can look at the previous figure to see the names of the signals.
+
+    \centerline{\includegraphics[scale=0.55]{img/test_program_wave_part1_1.png}}
+    \centerline{\includegraphics[scale=0.55]{img/test_program_wave_part1_2.png}}
+
+    \centerline{\includegraphics[scale=0.55]{img/test_program_wave_part2.png}}
+
+    \centerline{\includegraphics[scale=0.55]{img/test_program_wave_part3.png}}
 
 \section{Modified ROM32 Code}
 {\tiny

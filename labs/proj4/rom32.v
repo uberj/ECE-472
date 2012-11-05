@@ -47,11 +47,9 @@ module rom32(address, data_out);
           5'd2 : data_out = { 8'hff, 8'hff, 8'hff, 8'hff }; // lw $4, 20($0)  r4=5
         */
 
-        /*
           // ADDI
           5'd0 : data_out = { 6'd35, 5'd0, 5'd3, 16'd8 };   // lw $3, 8($0)   r3=2
           5'd1 : data_out = { 6'd8, 5'd3, 5'd3, 16'd6 };    // addi $3, $3, 2
-        */
 
         /*
           // BEQ
@@ -74,6 +72,7 @@ module rom32(address, data_out);
           5'd6 : data_out = { 8'hff, 8'hff, 8'hff, 8'hff }; // Target of bne
         */
 
+       /*
           // Test Program
           5'd0 : data_out = { 6'd35, 5'd0, 5'd3, 16'd8};    // lw $3, 8($0)  (r3=2)
           5'd1 : data_out = { 6'd35, 5'd0, 5'd4, 16'd8};    // lw $4, 8($0) (r4=2)
@@ -86,6 +85,7 @@ module rom32(address, data_out);
           5'd7 : data_out = { 6'd5,  5'd3, 5'd4, 16'd1 };   // bne $3, $4, FINAL
           5'd8 : data_out = { 8'hee, 8'hee, 8'hee, 8'hee }; //
           5'd9 : data_out = { 8'hff, 8'hff, 8'hff, 8'hff }; // FINAL:
+        */
 
           // add more cases here as desired
           default data_out = 32'hxxxx;

@@ -1,0 +1,478 @@
+# //  ModelSim SE 6.6a Mar 19 2010 Linux 2.6.32-279.5.2.el6.x86_64
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading project proj3
+# Load canceled
+# reading /nfs/guille/a2/rh80apps/mti/6.6a/modeltech/linux/../modelsim.ini
+# Loading project proj4
+# Load canceled
+# Compile of add32.v was successful.
+# Compile of alu.v was successful.
+# Compile of alu_ctl.v was successful.
+# Compile of control_single.v was successful.
+# Compile of mem32.v was successful.
+# Compile of mips_single.v was successful.
+# Compile of mux2.v was successful.
+# Compile of reg32.v was successful.
+# Compile of reg_file.v was successful.
+# Compile of rom32.v was successful.
+# Compile of proj4_testbench.v was successful.
+# 11 compiles, 0 failed with no errors. 
+vsim -novopt work.test_bench
+# vsim -novopt work.test_bench 
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.test_bench
+# Loading work.test_bench
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mips_single
+# Loading work.mips_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg32
+# Loading work.reg32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.add32
+# Loading work.add32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg_file
+# Loading work.reg_file
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu
+# Loading work.alu
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.rom32
+# Loading work.rom32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mem32
+# Loading work.mem32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mux2
+# Loading work.mux2
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.control_single
+# Loading work.control_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu_ctl
+# Loading work.alu_ctl
+add wave -r /*
+run 2000
+#                  100 reading data: rom32[00000000] => 8c030008
+#                  100 reg_file[ 3] =>          x (Port 2)
+#                  100 reg_file[ 0] =>          0 (Port 1)
+#                  100 reading data: Mem[00000008] => 00000002
+#                  300 reg_file[ 3] <=          2 (Write)
+#                  300 reading data: rom32[00000004] => 8c040008
+#                  300 reg_file[ 3] =>          2 (Port 2)
+#                  300 reg_file[ 4] =>          x (Port 2)
+#                  500 reg_file[ 4] <=          2 (Write)
+#                  500 reading data: rom32[00000008] => 20630006
+#                  500 reg_file[ 4] =>          2 (Port 2)
+#                  500 reg_file[ 3] =>          2 (Port 2)
+#                  500 reg_file[ 3] =>          2 (Port 1)
+#                  700 reg_file[ 3] <=          8 (Write)
+#                  700 reading data: rom32[0000000c] => 14640002
+#                  700 reg_file[ 3] =>          8 (Port 1)
+#                  700 reg_file[ 3] =>          8 (Port 2)
+#                  700 reg_file[ 4] =>          2 (Port 2)
+#                  900 reading data: rom32[00000018] => ffffffff
+#                  900 reg_file[31] =>          x (Port 2)
+#                  900 reg_file[31] =>          x (Port 1)
+# control_single unimplemented opcode 63
+#                 1100 reading data: rom32[0000001X] => xxxxxxxx
+#                 1100 reg_file[ x] =>          x (Port 2)
+#                 1100 reg_file[ x] =>          x (Port 1)
+# control_single unimplemented opcode  x
+run
+run
+restart
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.test_bench
+# Loading work.test_bench
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mips_single
+# Loading work.mips_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg32
+# Loading work.reg32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.add32
+# Loading work.add32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg_file
+# Loading work.reg_file
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu
+# Loading work.alu
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.rom32
+# Loading work.rom32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mem32
+# Loading work.mem32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mux2
+# Loading work.mux2
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.control_single
+# Loading work.control_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu_ctl
+# Loading work.alu_ctl
+run 2000
+#                  100 reading data: rom32[00000000] => 8c030008
+#                  100 reg_file[ 3] =>          x (Port 2)
+#                  100 reg_file[ 0] =>          0 (Port 1)
+#                  100 reading data: Mem[00000008] => 00000002
+#                  300 reg_file[ 3] <=          2 (Write)
+#                  300 reading data: rom32[00000004] => 8c040008
+#                  300 reg_file[ 3] =>          2 (Port 2)
+#                  300 reg_file[ 4] =>          x (Port 2)
+#                  500 reg_file[ 4] <=          2 (Write)
+#                  500 reading data: rom32[00000008] => 10640002
+#                  500 reg_file[ 4] =>          2 (Port 2)
+#                  500 reg_file[ 3] =>          2 (Port 1)
+#                  700 reading data: rom32[00000014] => ffffffff
+#                  700 reg_file[31] =>          x (Port 2)
+#                  700 reg_file[31] =>          x (Port 1)
+# control_single unimplemented opcode 63
+#                  900 reading data: rom32[0000001X] => xxxxxxxx
+#                  900 reg_file[ x] =>          x (Port 2)
+#                  900 reg_file[ x] =>          x (Port 1)
+# control_single unimplemented opcode  x
+restart
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.test_bench
+# Loading work.test_bench
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mips_single
+# Loading work.mips_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg32
+# Loading work.reg32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.add32
+# Loading work.add32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg_file
+# Loading work.reg_file
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu
+# Loading work.alu
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.rom32
+# Loading work.rom32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mem32
+# Loading work.mem32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mux2
+# Loading work.mux2
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.control_single
+# Loading work.control_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu_ctl
+# Loading work.alu_ctl
+run 2000
+#                  100 reading data: rom32[00000000] => 8c030008
+#                  100 reg_file[ 3] =>          x (Port 2)
+#                  100 reg_file[ 0] =>          0 (Port 1)
+#                  100 reading data: Mem[00000008] => 00000002
+#                  300 reg_file[ 3] <=          2 (Write)
+#                  300 reading data: rom32[00000004] => 20630006
+#                  300 reg_file[ 3] =>          2 (Port 2)
+#                  300 reg_file[ 3] =>          2 (Port 1)
+#                  500 reg_file[ 3] <=          8 (Write)
+#                  500 reading data: rom32[00000008] => xxxxxxxx
+#                  500 reg_file[ 3] =>          8 (Port 1)
+#                  500 reg_file[ 3] =>          8 (Port 2)
+#                  500 reg_file[ x] =>          x (Port 2)
+#                  500 reg_file[ x] =>          x (Port 1)
+# control_single unimplemented opcode  x
+restart
+run 2000
+#                  100 reading data: rom32[00000000] => 8c030008
+#                  100 reg_file[ 3] =>          x (Port 2)
+#                  100 reg_file[ 0] =>          0 (Port 1)
+#                  100 reading data: Mem[00000008] => 00000002
+#                  300 reg_file[ 3] <=          2 (Write)
+#                  300 reading data: rom32[00000004] => 20630006
+#                  300 reg_file[ 3] =>          2 (Port 2)
+#                  300 reg_file[ 3] =>          2 (Port 1)
+#                  500 reg_file[ 3] <=          8 (Write)
+#                  500 reading data: rom32[00000008] => xxxxxxxx
+#                  500 reg_file[ 3] =>          8 (Port 1)
+#                  500 reg_file[ 3] =>          8 (Port 2)
+#                  500 reg_file[ x] =>          x (Port 2)
+#                  500 reg_file[ x] =>          x (Port 1)
+# control_single unimplemented opcode  x
+restart
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.test_bench
+# Loading work.test_bench
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mips_single
+# Loading work.mips_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg32
+# Loading work.reg32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.add32
+# Loading work.add32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg_file
+# Loading work.reg_file
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu
+# Loading work.alu
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.rom32
+# Loading work.rom32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mem32
+# Loading work.mem32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mux2
+# Loading work.mux2
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.control_single
+# Loading work.control_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu_ctl
+# Loading work.alu_ctl
+run 1000
+#                  100 reading data: rom32[00000000] => 08000002
+#                  100 reg_file[ 0] =>          0 (Port 2)
+#                  100 reg_file[ 0] =>          0 (Port 1)
+# BEGIN JUMP PREP
+#                  300 reading data: rom32[00000008] => ffffffff
+#                  300 reg_file[31] =>          x (Port 2)
+#                  300 reg_file[31] =>          x (Port 1)
+# control_single unimplemented opcode 63
+#                  500 reading data: rom32[0000000X] => xxxxxxxx
+#                  500 reg_file[ x] =>          x (Port 2)
+#                  500 reg_file[ x] =>          x (Port 1)
+# control_single unimplemented opcode  x
+restart
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.test_bench
+# Loading work.test_bench
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mips_single
+# Loading work.mips_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg32
+# Loading work.reg32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.add32
+# Loading work.add32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg_file
+# Loading work.reg_file
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu
+# Loading work.alu
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.rom32
+# Loading work.rom32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mem32
+# Loading work.mem32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mux2
+# Loading work.mux2
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.control_single
+# Loading work.control_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu_ctl
+# Loading work.alu_ctl
+run 1000
+#                  100 reading data: rom32[00000000] => 8c030008
+#                  100 reg_file[ 3] =>          x (Port 2)
+#                  100 reg_file[ 0] =>          0 (Port 1)
+#                  100 reading data: Mem[00000008] => 00000002
+#                  300 reg_file[ 3] <=          2 (Write)
+#                  300 reading data: rom32[00000004] => 20630006
+#                  300 reg_file[ 3] =>          2 (Port 2)
+#                  300 reg_file[ 3] =>          2 (Port 1)
+#                  500 reg_file[ 3] <=          8 (Write)
+#                  500 reading data: rom32[00000008] => xxxxxxxx
+#                  500 reg_file[ 3] =>          8 (Port 1)
+#                  500 reg_file[ 3] =>          8 (Port 2)
+#                  500 reg_file[ x] =>          x (Port 2)
+#                  500 reg_file[ x] =>          x (Port 1)
+# control_single unimplemented opcode  x
+restarty
+# invalid command name "restarty"
+restart
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.test_bench
+# Loading work.test_bench
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mips_single
+# Loading work.mips_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg32
+# Loading work.reg32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.add32
+# Loading work.add32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg_file
+# Loading work.reg_file
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu
+# Loading work.alu
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.rom32
+# Loading work.rom32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mem32
+# Loading work.mem32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mux2
+# Loading work.mux2
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.control_single
+# Loading work.control_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu_ctl
+# Loading work.alu_ctl
+run 1000
+#                  100 reading data: rom32[00000000] => 08000002
+#                  100 reg_file[ 0] =>          0 (Port 2)
+#                  100 reg_file[ 0] =>          0 (Port 1)
+# BEGIN JUMP PREP
+#                  300 reading data: rom32[00000008] => ffffffff
+#                  300 reg_file[31] =>          x (Port 2)
+#                  300 reg_file[31] =>          x (Port 1)
+# control_single unimplemented opcode 63
+#                  500 reading data: rom32[0000000X] => xxxxxxxx
+#                  500 reg_file[ x] =>          x (Port 2)
+#                  500 reg_file[ x] =>          x (Port 1)
+# control_single unimplemented opcode  x
+restart
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.test_bench
+# Loading work.test_bench
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mips_single
+# Loading work.mips_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg32
+# Loading work.reg32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.add32
+# Loading work.add32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg_file
+# Loading work.reg_file
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu
+# Loading work.alu
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.rom32
+# Loading work.rom32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mem32
+# Loading work.mem32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mux2
+# Loading work.mux2
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.control_single
+# Loading work.control_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu_ctl
+# Loading work.alu_ctl
+run 2000
+#                  100 reading data: rom32[00000000] => 8c030008
+#                  100 reg_file[ 3] =>          x (Port 2)
+#                  100 reg_file[ 0] =>          0 (Port 1)
+#                  100 reading data: Mem[00000008] => 00000002
+#                  300 reg_file[ 3] <=          2 (Write)
+#                  300 reading data: rom32[00000004] => 8c040008
+#                  300 reg_file[ 3] =>          2 (Port 2)
+#                  300 reg_file[ 4] =>          x (Port 2)
+#                  500 reg_file[ 4] <=          2 (Write)
+#                  500 reading data: rom32[00000008] => 10640002
+#                  500 reg_file[ 4] =>          2 (Port 2)
+#                  500 reg_file[ 3] =>          2 (Port 1)
+#                  700 reading data: rom32[00000014] => ffffffff
+#                  700 reg_file[31] =>          x (Port 2)
+#                  700 reg_file[31] =>          x (Port 1)
+# control_single unimplemented opcode 63
+#                  900 reading data: rom32[0000001X] => xxxxxxxx
+#                  900 reg_file[ x] =>          x (Port 2)
+#                  900 reg_file[ x] =>          x (Port 1)
+# control_single unimplemented opcode  x
+restart
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.test_bench
+# Loading work.test_bench
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mips_single
+# Loading work.mips_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg32
+# Loading work.reg32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.add32
+# Loading work.add32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg_file
+# Loading work.reg_file
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu
+# Loading work.alu
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.rom32
+# Loading work.rom32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mem32
+# Loading work.mem32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mux2
+# Loading work.mux2
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.control_single
+# Loading work.control_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu_ctl
+# Loading work.alu_ctl
+run 2000
+#                  100 reading data: rom32[00000000] => 8c030008
+#                  100 reg_file[ 3] =>          x (Port 2)
+#                  100 reg_file[ 0] =>          0 (Port 1)
+#                  100 reading data: Mem[00000008] => 00000002
+#                  300 reg_file[ 3] <=          2 (Write)
+#                  300 reading data: rom32[00000004] => 8c040008
+#                  300 reg_file[ 3] =>          2 (Port 2)
+#                  300 reg_file[ 4] =>          x (Port 2)
+#                  500 reg_file[ 4] <=          2 (Write)
+#                  500 reading data: rom32[00000008] => 20630006
+#                  500 reg_file[ 4] =>          2 (Port 2)
+#                  500 reg_file[ 3] =>          2 (Port 2)
+#                  500 reg_file[ 3] =>          2 (Port 1)
+#                  700 reg_file[ 3] <=          8 (Write)
+#                  700 reading data: rom32[0000000c] => 14640002
+#                  700 reg_file[ 3] =>          8 (Port 1)
+#                  700 reg_file[ 3] =>          8 (Port 2)
+#                  700 reg_file[ 4] =>          2 (Port 2)
+#                  900 reading data: rom32[00000018] => ffffffff
+#                  900 reg_file[31] =>          x (Port 2)
+#                  900 reg_file[31] =>          x (Port 1)
+# control_single unimplemented opcode 63
+#                 1100 reading data: rom32[0000001X] => xxxxxxxx
+#                 1100 reg_file[ x] =>          x (Port 2)
+#                 1100 reg_file[ x] =>          x (Port 1)
+# control_single unimplemented opcode  x
+add wave -r sim:/test_bench/DUT/ALU/*
+restart
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.test_bench
+# Loading work.test_bench
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mips_single
+# Loading work.mips_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg32
+# Loading work.reg32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.add32
+# Loading work.add32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg_file
+# Loading work.reg_file
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu
+# Loading work.alu
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.rom32
+# Loading work.rom32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mem32
+# Loading work.mem32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mux2
+# Loading work.mux2
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.control_single
+# Loading work.control_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu_ctl
+# Loading work.alu_ctl
+run 1000
+#                  100 reading data: rom32[00000000] => 8c030008
+#                  100 reg_file[ 3] =>          x (Port 2)
+#                  100 reg_file[ 0] =>          0 (Port 1)
+#                  100 reading data: Mem[00000008] => 00000002
+#                  300 reg_file[ 3] <=          2 (Write)
+#                  300 reading data: rom32[00000004] => 8c040008
+#                  300 reg_file[ 3] =>          2 (Port 2)
+#                  300 reg_file[ 4] =>          x (Port 2)
+#                  500 reg_file[ 4] <=          2 (Write)
+#                  500 reading data: rom32[00000008] => 10640002
+#                  500 reg_file[ 4] =>          2 (Port 2)
+#                  500 reg_file[ 3] =>          2 (Port 1)
+#                  700 reading data: rom32[00000014] => ffffffff
+#                  700 reg_file[31] =>          x (Port 2)
+#                  700 reg_file[31] =>          x (Port 1)
+# control_single unimplemented opcode 63
+#                  900 reading data: rom32[0000001X] => xxxxxxxx
+#                  900 reg_file[ x] =>          x (Port 2)
+#                  900 reg_file[ x] =>          x (Port 1)
+# control_single unimplemented opcode  x
+run
+run
+run
+run
+run
+run 1000
+restart
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.test_bench
+# Loading work.test_bench
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mips_single
+# Loading work.mips_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg32
+# Loading work.reg32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.add32
+# Loading work.add32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.reg_file
+# Loading work.reg_file
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu
+# Loading work.alu
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.rom32
+# Loading work.rom32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mem32
+# Loading work.mem32
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.mux2
+# Loading work.mux2
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.control_single
+# Loading work.control_single
+# Refreshing /nfs/stak/students/u/uberj/ECE472/labs/proj4/work.alu_ctl
+# Loading work.alu_ctl
+run 1000
+#                  100 reading data: rom32[00000000] => 8c030008
+#                  100 reg_file[ 3] =>          x (Port 2)
+#                  100 reg_file[ 0] =>          0 (Port 1)
+#                  100 reading data: Mem[00000008] => 00000002
+#                  300 reg_file[ 3] <=          2 (Write)
+#                  300 reading data: rom32[00000004] => 20630006
+#                  300 reg_file[ 3] =>          2 (Port 2)
+#                  300 reg_file[ 3] =>          2 (Port 1)
+#                  500 reg_file[ 3] <=          8 (Write)
+#                  500 reading data: rom32[00000008] => xxxxxxxx
+#                  500 reg_file[ 3] =>          8 (Port 1)
+#                  500 reg_file[ 3] =>          8 (Port 2)
+#                  500 reg_file[ x] =>          x (Port 2)
+#                  500 reg_file[ x] =>          x (Port 1)
+# control_single unimplemented opcode  x
